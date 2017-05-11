@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import may11a from './may11a.jpg';
+import may11b from './may11b.jpg';
+import may11c from './may11c.jpg';
 import './App.css';
 
 class App extends Component {
@@ -21,13 +23,13 @@ class App extends Component {
           <img src="http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg" alt="logo" />
         <div>
 
-          <img src={may11a} alt="logo" />
+          <img src={may11a} className="progress-photo" alt="" />
         </div>
         <div>
-          <img src="../public/may11b.jpg" alt="logo" />
+          <img src={may11b} className="progress-photo" alt="" />
         </div>
         <div>
-          <img src="../public/may11c.jpg" alt="logo" />
+          <img src={may11c} className="progress-photo" alt="" />
         </div>
       </div>
     );
