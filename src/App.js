@@ -45,10 +45,42 @@ class App extends Component {
 }
 
 class App2 extends Component{
-  render () {
-    return (
-      <div>App2test</div>
-    )
+  constructor(props) {
+     super(props);
+
+     this.state = {
+        data: 'for Josh'
+     }
+
+     this.updateState = this.updateState.bind(this);
+
+     this.state2 = {
+        data2: 'for Amanda'
+     }
+
+     this.updateState2 = this.updateState2.bind(this);
+
+  };
+
+  updateState(e) {
+     this.setState({data: e.target.value});
+  }
+
+  updateState2(e) {
+     this.setState({data: e.target.value});
+  }
+
+  render() {
+     return (
+        <div>
+           <input type="text" value={this.state.data}
+              onChange={this.updateState} />
+           <h4>{this.state.data}</h4>
+           <input type="text" value={this.state2.data2}
+              onChange={this.updateState2} />
+           <h4>{this.state.data2}where</h4>
+        </div>
+     );
   }
 }
 
