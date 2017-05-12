@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import may11a from './may11a.jpg';
+import may11a from './may11a.png';
 import may11b from './may11b.jpg';
-import may11c from './may11c.jpg';
+import may12a from './may12a.png';
+import may12b from './may12b.jpg';
 import './App.css';
 
 class App extends Component {
@@ -19,14 +20,7 @@ class App extends Component {
 
         <div className="progress-photo-container">
           <img src={may11a} className="progress-photo" alt="" />
-        </div>
-
-        <div className="progress-photo-container">
           <img src={may11b} className="progress-photo-turn" alt="" />
-        </div>
-
-        <div className="progress-photo-container">
-          <img src={may11c} className="progress-photo" alt="" />
         </div>
 
         <div>
@@ -35,8 +29,14 @@ class App extends Component {
           she has lost 50 pounds she is down to 215 lbs!
         </div>
 
+        <div className="progress-photo-container">
+          <img src={may12a} className="progress-photo" alt="" />
+          <img src={may12b} className="progress-photo" alt="" />
+        </div>
+
         <div className="date-container">May 12, 2017</div>
-        <div className="weight-container">unknown</div>
+        <div className="weight-container">Josh - 217.4 lbs</div>
+        <div className="weight-container">Amanda - 213.0 lbs</div>
       </div>
 
 
