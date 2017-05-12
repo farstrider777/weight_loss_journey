@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import may11a from './may11a.png';
 import may11b from './may11b.jpg';
 import may12a from './may12a.png';
@@ -37,6 +37,9 @@ class App extends Component {
         <div className="date-container">May 12, 2017</div>
         <div className="weight-container">Josh - 217.4 lbs</div>
         <div className="weight-container">Amanda - 213.0 lbs</div>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
 
 
@@ -49,14 +52,15 @@ class App2 extends Component{
      super(props);
 
      this.state = {
-        data: 'for Josh'
+        data: 'Josh\'s Weight is: ',
+        data2: 'Amanda\'s Weight is: '
      }
 
      this.updateState = this.updateState.bind(this);
 
-     this.state2 = {
-        data2: 'for Amanda'
-     }
+    //  this.state2= {
+    //     data2: 'for Amanda'
+    //  }
 
      this.updateState2 = this.updateState2.bind(this);
 
@@ -67,7 +71,9 @@ class App2 extends Component{
   }
 
   updateState2(e) {
-     this.setState({data: e.target.value});
+     console.log(e)
+     this.setState({data2: e.target.value});
+     console.log("update state 2 with" + e.target.value)
   }
 
   render() {
@@ -76,9 +82,10 @@ class App2 extends Component{
            <input type="text" value={this.state.data}
               onChange={this.updateState} />
            <h4>{this.state.data}</h4>
-           <input type="text" value={this.state2.data2}
+
+            <input type="text" value={this.state.data2}
               onChange={this.updateState2} />
-           <h4>{this.state.data2}where</h4>
+            <h4>{this.state.data2}d</h4>
         </div>
      );
   }
