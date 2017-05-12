@@ -18,19 +18,21 @@ class App extends Component {
         </p>
 
 
-        <div>
-        </div>
-          <img src="http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg" alt="logo" />
-        <div>
 
+
+
+        <div className="progress-photo-container">
           <img src={may11a} className="progress-photo" alt="" />
         </div>
-        <div>
-          <img src={may11b} className="progress-photo" alt="" />
+
+        <div className="progress-photo-container">
+          <img src={may11b} className="progress-photo-turn" alt="" />
         </div>
-        <div>
+
+        <div className="progress-photo-container">
           <img src={may11c} className="progress-photo" alt="" />
         </div>
+
       </div>
     );
   }

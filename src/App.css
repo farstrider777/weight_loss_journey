@@ -1,5 +1,42 @@
+/**{
+  border: 1px dotted red;
+}*/
+
+html {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+*, *:before, *:after {
+-webkit-box-sizing: inherit;
+-moz-box-sizing: inherit;
+box-sizing: inherit;
+}
+
+.progress-photo-container {
+  width: 220px;
+  height: 220px;
+  padding: 10px;
+  display: inline-block;
+}
+
+
 .progress-photo {
   width: 200px;
+  height: 200px;
+  display: inline-block;
+  /*padding: 20px;*/
+}
+
+.progress-photo-turn {
+  width: 200px;
+  display: inline-block;
+
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
 
