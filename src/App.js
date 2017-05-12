@@ -44,4 +44,12 @@ class App extends Component {
   }
 }
 
-export default App;
+class App2 extends Component{
+  render () {
+    return (
+      <div>App2test</div>
+    )
+  }
+}
+
+export {App, App2};
