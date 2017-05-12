@@ -6,6 +6,23 @@ import may12a from './may12a.png';
 import may12b from './may12b.jpg';
 import './App.css';
 
+var testasynch = {}
+
+function getMoviesFromApiAsync() {
+  return fetch('https://facebook.github.io/react-native/movies.json')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson.movies)
+      return responseJson.movies;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+  // console.log(fetch('localhost:8000/contacts/2'))
+
+getMoviesFromApiAsync().then(console.log(testasynch))
+
 class App extends Component {
   render() {
     return (
@@ -75,6 +92,8 @@ class App2 extends Component{
      this.setState({data2: e.target.value});
      console.log("update state 2 with" + e.target.value)
   }
+
+
 
   render() {
      return (

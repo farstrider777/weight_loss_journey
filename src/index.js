@@ -5,8 +5,6 @@ import ReactDOM from 'react-dom';
 import { App } from './App';
 import { App2 } from './App';
 import './index.css';
-console.log(App)
-console.log(App2)
 
 ReactDOM.render(
   <App />,
