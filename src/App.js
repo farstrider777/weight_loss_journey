@@ -30,20 +30,25 @@ function postWeight (name, weight){
 // email
 /////////////////working fetch//////////
 
-var items = {}
+var items = [{name: "fnufnu"},{}]
 
-fetch('http://localhost:8000/contacts')
-  //.then((response) => response.json())
-  .then((response) =>
-    response.json()
-    )
-  .then((responseJson) => {
+function getData() {
+  fetch('http://localhost:8000/contacts')
+    //.then((response) => response.json())
+    .then((response) =>
+      response.json()
+      )
+    .then((responseJson) => {
 
-    items = responseJson;
-    console.log(items)
-    console.log(items[0].name)
-  })
+      items = responseJson;
+      console.log(items)
+      console.log(items[0].name)
+      console.log("ran get data")
+      //return responseJson;
+    })
+}
 
+getData();
 
 //////////////////old fetch got from heroku/////////
 // function getMoviesFromApiAsync() {
@@ -72,13 +77,16 @@ var items2 = [
   { name: "Luke", link: "https://bible.com/1/luk.1" },
   { name: "John", link: "https://bible.com/1/jhn.1" }
 ];
-
+////////////////////////////
 function display() {
+  console.log("display run")
   if (!items[0]){
-    return "howdy"
+    return "how"
   }
+  console.log(items[0].name)
   return items[0].name
 }
+
 
 ////////////////////////////////
 
@@ -120,6 +128,7 @@ class App extends Component {
         <div className="weight-container">Josh - 216.0 lbs</div>
         <div className="weight-container">Amanda - 213.6 lbs</div>
         <div>{display()}d</div>
+        <div>{items2[0].name}</div>
       </div>
 
 
@@ -133,7 +142,8 @@ class App2 extends Component{
 
      this.state = {
         data: 'Josh\'s Weight is: ',
-        data2: 'Amanda\'s Weight is: '
+        data2: 'Amanda\'s Weight is: ',
+        data3: 'Fred first state data3'
      }
 
      this.updateState = this.updateState.bind(this);
@@ -144,18 +154,30 @@ class App2 extends Component{
 
      this.updateState2 = this.updateState2.bind(this);
 
+     this.updateStateInfoHttp = this.updateStateInfoHttp.bind(this);
+
      this.submitButton = this.submitButton.bind(this);
 
   };
+
+
+
+
+
+
+
 
   updateState(e) {
      this.setState({data: e.target.value});
   }
 
   updateState2(e) {
-     console.log(e)
      this.setState({data2: e.target.value});
-     console.log("update state 2 with" + e.target.value)
+  }
+
+  updateStateInfoHttp(){
+    this.setState({data3: items[0].name})
+    console.log("inside update state info")
   }
 
   submitButton() {
@@ -174,7 +196,10 @@ class App2 extends Component{
               onChange={this.updateState2} />
             <h4>{this.state.data2}</h4>
 
-            <button onClick={this.submitButton} >Send data</button>
+            <div>{setTimeout(this.updateStateInfoHttp, 3000)}dtt</div>
+            <h4>{this.state.data3}</h4>
+
+            <button onClick={this.submitButton}>Send data</button>
         </div>
      );
   }
