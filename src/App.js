@@ -8,20 +8,30 @@ import './App.css';
 
 var testasynch = {}
 
+fetch('http://localhost:8000/contacts/2')
+  //.then((response) => response.json())
+  .then((response) =>
+    response.json()
+    )
+  .then((responseJson) => {
+    console.log("hello")
+    console.log(responseJson)
+  })
+
 function getMoviesFromApiAsync() {
   //return fetch('https://facebook.github.io/react-native/movies.json')
   return fetch('https://arcane-mountain-37553.herokuapp.com/contacts/2')
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson)
-      console.log(responseJson.movies)
-      return responseJson.movies;
+      testasynch = responseJson;
+      return responseJson;
     })
     .catch((error) => {
       console.error(error);
     });
 }
-  // console.log(fetch('localhost:8000/contacts/2'))
+  //console.log(fetch('localhost:8000/contacts/2'))
 
 getMoviesFromApiAsync().then(console.log(testasynch))
 
@@ -106,7 +116,7 @@ class App2 extends Component{
 
             <input type="text" value={this.state.data2}
               onChange={this.updateState2} />
-            <h4>{this.state.data2}d</h4>
+            <h4>{this.state.data2}</h4>
         </div>
      );
   }
