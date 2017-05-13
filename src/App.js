@@ -16,6 +16,7 @@ function postWeight (name, weight){
     body: JSON.stringify({
       name: name,
       phone_number: weight,
+      city: Date(),
     })
   })
 }
@@ -29,34 +30,57 @@ function postWeight (name, weight){
 // email
 /////////////////working fetch//////////
 
-var testasynch = {}
+var items = {}
 
-fetch('http://localhost:8000/contacts/2')
+fetch('http://localhost:8000/contacts')
   //.then((response) => response.json())
   .then((response) =>
     response.json()
     )
   .then((responseJson) => {
-    console.log(responseJson)
+
+    items = responseJson;
+    console.log(items)
+    console.log(items[0].name)
   })
 
-function getMoviesFromApiAsync() {
-  //return fetch('https://facebook.github.io/react-native/movies.json')
-  return fetch('https://arcane-mountain-37553.herokuapp.com/contacts/2')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson)
-      testasynch = responseJson;
-      console.log(testasynch)
-      return responseJson;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
+
+//////////////////old fetch got from heroku/////////
+// function getMoviesFromApiAsync() {
+//   //return fetch('https://facebook.github.io/react-native/movies.json')
+//   return fetch('https://arcane-mountain-37553.herokuapp.com/contacts/2')
+//     .then((response) => response.json())
+//     .then((responseJson) => {
+//       console.log(responseJson)
+//       testasynch = responseJson;
+//       console.log(testasynch)
+//       return responseJson;
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// }
+
+
   //console.log(fetch('localhost:8000/contacts/2'))
 
 //getMoviesFromApiAsync()
+
+var items2 = [
+  { name: "Matthew", link: "https://bible.com/1/mat.1" },
+  { name: "Mark", link: "https://bible.com/1/mrk.1" },
+  { name: "Luke", link: "https://bible.com/1/luk.1" },
+  { name: "John", link: "https://bible.com/1/jhn.1" }
+];
+
+function display() {
+  if (!items[0]){
+    return "howdy"
+  }
+  return items[0].name
+}
+
+////////////////////////////////
 
 class App extends Component {
   render() {
@@ -95,6 +119,7 @@ class App extends Component {
         <div className="date-container">May 13, 2017</div>
         <div className="weight-container">Josh - 216.0 lbs</div>
         <div className="weight-container">Amanda - 213.6 lbs</div>
+        <div>{display()}d</div>
       </div>
 
 
