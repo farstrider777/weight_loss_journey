@@ -6,6 +6,24 @@ import may12a from './may12a.png';
 import may12b from './may12b.jpg';
 import './App.css';
 
+
+fetch('http://localhost:8000/contacts', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'test_from_wlj',
+    phone_number: '555-5wlj',
+  })
+})
+
+
+
+
+/////////////////working fetch//////////
+
 var testasynch = {}
 
 fetch('http://localhost:8000/contacts/2')
@@ -69,6 +87,9 @@ class App extends Component {
         <br></br>
         <br></br>
         <br></br>
+        <div className="date-container">May 13, 2017</div>
+        <div className="weight-container">Josh - 216.0 lbs</div>
+        <div className="weight-container">Amanda - 213.6 lbs</div>
       </div>
 
 
