@@ -6,22 +6,27 @@ import may12a from './may12a.png';
 import may12b from './may12b.jpg';
 import './App.css';
 
-
-fetch('http://localhost:8000/contacts', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    name: 'test_from_wlj',
-    phone_number: '555-5wlj',
+function postWeight (name, weight){
+  fetch('http://localhost:8000/contacts', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: name,
+      phone_number: weight,
+    })
   })
-})
+}
 
 
-
-
+// name = name
+// phone_number = weight
+// city = date
+// state
+// photo_url
+// email
 /////////////////working fetch//////////
 
 var testasynch = {}
@@ -32,7 +37,6 @@ fetch('http://localhost:8000/contacts/2')
     response.json()
     )
   .then((responseJson) => {
-    console.log("hello")
     console.log(responseJson)
   })
 
@@ -43,6 +47,7 @@ function getMoviesFromApiAsync() {
     .then((responseJson) => {
       console.log(responseJson)
       testasynch = responseJson;
+      console.log(testasynch)
       return responseJson;
     })
     .catch((error) => {
@@ -51,7 +56,7 @@ function getMoviesFromApiAsync() {
 }
   //console.log(fetch('localhost:8000/contacts/2'))
 
-getMoviesFromApiAsync().then(console.log(testasynch))
+//getMoviesFromApiAsync()
 
 class App extends Component {
   render() {
@@ -114,6 +119,8 @@ class App2 extends Component{
 
      this.updateState2 = this.updateState2.bind(this);
 
+     this.submitButton = this.submitButton.bind(this);
+
   };
 
   updateState(e) {
@@ -126,7 +133,10 @@ class App2 extends Component{
      console.log("update state 2 with" + e.target.value)
   }
 
-
+  submitButton() {
+    console.log("button works")
+    postWeight(this.state.data, this.state.data2)
+  }
 
   render() {
      return (
@@ -138,6 +148,8 @@ class App2 extends Component{
             <input type="text" value={this.state.data2}
               onChange={this.updateState2} />
             <h4>{this.state.data2}</h4>
+
+            <button onClick={this.submitButton} >Send data</button>
         </div>
      );
   }
