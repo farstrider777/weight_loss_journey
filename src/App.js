@@ -9,9 +9,11 @@ import './App.css';
 var testasynch = {}
 
 function getMoviesFromApiAsync() {
-  return fetch('https://facebook.github.io/react-native/movies.json')
+  //return fetch('https://facebook.github.io/react-native/movies.json')
+  return fetch('https://arcane-mountain-37553.herokuapp.com/contacts/2')
     .then((response) => response.json())
     .then((responseJson) => {
+      console.log(responseJson)
       console.log(responseJson.movies)
       return responseJson.movies;
     })
