@@ -128,7 +128,7 @@ class App extends Component {
         <div className="weight-container">Josh - 216.0 lbs</div>
         <div className="weight-container">Amanda - 213.6 lbs</div>
         <div>{display()}d</div>
-        <div>{items2[0].name}</div>
+        <div>{items[0].name}</div>
       </div>
 
 
@@ -161,12 +161,6 @@ class App2 extends Component{
   };
 
 
-
-
-
-
-
-
   updateState(e) {
      this.setState({data: e.target.value});
   }
@@ -196,7 +190,11 @@ class App2 extends Component{
               onChange={this.updateState2} />
             <h4>{this.state.data2}</h4>
 
-            <div>{setTimeout(this.updateStateInfoHttp, 3000)}dtt</div>
+            <input type="text" value={this.state.data3}
+              onChange={this.updateStateInfoHttp} />
+
+
+
             <h4>{this.state.data3}</h4>
 
             <button onClick={this.submitButton}>Send data</button>
@@ -204,5 +202,7 @@ class App2 extends Component{
      );
   }
 }
+
+//      <div>{setTimeout(this.updateStateInfoHttp, 3000)}dtt</div>
 
 export {App, App2};

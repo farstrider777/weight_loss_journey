@@ -15,3 +15,13 @@ ReactDOM.render(
   <App2 />,
   document.getElementById('root2')
 );
+
+function bill () {
+  console.log("bill run")
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+  )
+}
+
+setTimeout(bill, 3000)
