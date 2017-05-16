@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+import ReactDOM from 'react-dom';
 import may11a from './may11a.png';
 import may11b from './may11b.jpg';
 import may12a from './may12a.png';
@@ -30,11 +30,11 @@ function postWeight (name, weight){
 // email
 /////////////////working fetch//////////
 
-var items = [{name: "fnufnu"},{}]
+
+var items = [];
 
 function getData() {
   fetch('http://localhost:8000/contacts')
-    //.then((response) => response.json())
     .then((response) =>
       response.json()
       )
@@ -67,23 +67,18 @@ getData();
 // }
 
 
-  //console.log(fetch('localhost:8000/contacts/2'))
 
-//getMoviesFromApiAsync()
-
-var items2 = [
-  { name: "Matthew", link: "https://bible.com/1/mat.1" },
-  { name: "Mark", link: "https://bible.com/1/mrk.1" },
-  { name: "Luke", link: "https://bible.com/1/luk.1" },
-  { name: "John", link: "https://bible.com/1/jhn.1" }
-];
 ////////////////////////////
 function display() {
   console.log("display run")
   if (!items[0]){
     return "how"
   }
-  console.log(items[0].name)
+  // ReactDOM.render(
+  //   <App />,
+  //   document.getElementById('root')
+  // )
+
   return items[0].name
 }
 
@@ -128,7 +123,6 @@ class App extends Component {
         <div className="weight-container">Josh - 216.0 lbs</div>
         <div className="weight-container">Amanda - 213.6 lbs</div>
         <div>{display()}d</div>
-        <div>{items[0].name}</div>
       </div>
 
 
@@ -159,6 +153,7 @@ class App2 extends Component{
      this.submitButton = this.submitButton.bind(this);
 
   };
+
 
 
   updateState(e) {
@@ -202,6 +197,21 @@ class App2 extends Component{
      );
   }
 }
+
+function bill () {
+  console.log("bill run")
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+  )
+}
+
+
+
+//
+//setTimeout(bill, 3000)
+//console.log(bill)
+
 
 //      <div>{setTimeout(this.updateStateInfoHttp, 3000)}dtt</div>
 
